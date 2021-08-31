@@ -39,15 +39,7 @@ body {
 	position: relative;
 	text-align: center;
 }
-.signup-form h2:before, .signup-form h2:after {
-	content: "";
-	height: 2px;
-	width: 30%;
-	background: #d4d4d4;
-	position: absolute;
-	top: 50%;
-	z-index: 2;
-}
+
 .signup-form h2:before {
 	left: 0;
 }
@@ -112,24 +104,25 @@ body {
             </ul>
         </div>
     @endif
-    <form action="<?php echo url('/doRegister'); ?>" method="post" enctype="multipart/form-data">
-        {{-- @csrf --}}
-        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-		<h2>Register</h2>
-		<p class="hint-text">Create your account. It's free and only takes a minute.</p>
+    <form action="<?php echo url('/addnew'); ?>" method="post">
+        @csrf
+		<h2>Add New Task</h2>
         <div class="form-group">
 			<div class="row">
 				<div class="col"><input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name"></div>
 			</div>
         </div>
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
+        	<input type="text" class="form-control" name="content" value="{{ old('content') }}" placeholder="Content">
+        </div>
+        <div class="form-group">
+        	<input type="date" class="form-control" name="startDate" value="{{ old('startDate') }}" >
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password">
+            <input type="date" class="form-control" name="endDate" value="{{ old('endDate') }}" >
         </div>
 		<div class="form-group">
-            <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Add Task</button>
         </div>
     </form>
 </div>
