@@ -56,7 +56,6 @@ class TasksControllers extends Controller
         ]);
         $op = tasks::where('id', $request->id)->update($data);
         if ($op) {
-            // return back();
             return redirect(url('displaytask'));
         }
     }

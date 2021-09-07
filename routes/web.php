@@ -23,10 +23,13 @@ Route::post('doRegister', 'UserControllers@saveData');
 Route::get('userProfile', 'UserControllers@saveData');
 
 
-// Tasks Controllers Route
+// Tasks Controller Route
 Route::get('displaytask', 'TasksControllers@display');
 Route::get('addtask', 'TasksControllers@addView');
 Route::post('addnew', 'TasksControllers@addTask');
 Route::get('destory/{id}', 'TasksControllers@distory');
 Route::get('edit/{id}', 'TasksControllers@edit');
 Route::post('updatetask', 'TasksControllers@update');
+
+// Subject Controller Route
+Route::resource('subject', 'SubjectController');
